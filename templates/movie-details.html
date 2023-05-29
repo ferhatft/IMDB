@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film adı</title>
+    {% load static %}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #202020;
+            color: #fcf7f7;
+        }
+
+        .nav-bar {
+            height: 70px;
+            background-color: #0c0b00;
+            display: flex;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .home-page-text {
+
+            left: 0;
+            /* margin-right: auto; */
+            margin-right: 30px;
+            margin-left: 30px;
+        }
+
+        .home-page-text a {
+            font-size: 25px;
+            color: #fcf7f7;
+            text-decoration: none;
+            cursor: pointer;
+            user-select: none;
+
+        }
+
+        .left-side {
+
+            left: 0;
+            margin-right: auto;
+        }
+
+        .left-side a {
+            font-size: 20px;
+            color: #fcf7f7;
+            text-decoration: none;
+            margin-right: 20px;
+            cursor: pointer;
+            user-select: none;
+
+        }
+
+        .right-side {
+            margin-right: 30px;
+        }
+
+        .right-side a {
+            font-size: 20px;
+            color: #fcf7f7;
+            text-decoration: none;
+            margin-left: 20px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        a:hover {
+            color: #deb522;
+        }
+
+        .container {
+            margin: 50px 10% 100px;
+            border-radius: 10px;
+            box-shadow: rgba(17, 17, 26, 0.938) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+            padding-bottom: 100px;
+        }
+
+
+
+        .up-container {
+            display: flex;
+        }
+
+        .movie-img {
+            height: 500px;
+            margin: 30px;
+            margin-bottom: 0px;
+        }
+
+        .movie-image div {
+            margin: 10px 0px 30px 30px;
+            font-size: 20px;
+        }
+
+        .movie-info {
+            margin: 30px;
+            background-color: #0000002f;
+            width: 100%;
+            border-radius: 10px;
+
+        }
+
+        .movie-info .title {
+            font-size: 70px;
+            margin: 50px;
+            margin-top: 30px;
+        }
+
+
+        .movie-info-text {
+            margin: 30px;
+            margin-top: 0px;
+            width: 90%;
+            height: 60%;
+        }
+
+
+
+        .down-container {
+
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: rgba(17, 17, 26, 0.938) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+            margin: 100px 50px;
+        }
+
+
+        .movie-cast {
+            display: flex;
+        }
+
+        .artist {
+            border-radius: 10px;
+            box-shadow: rgba(17, 17, 26, 0.938) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+            height: 260px;
+            width: 200px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav-bar">
+
+        <div class="home-page-text">
+            <a href="{% url 'home' %}">Anasayfa</a>
+        </div>
+
+        <div class="left-side">
+
+
+            <a href="">Filmler</a>
+            <a href="">Diziler</a>
+            <a href="">En iyi 100 Film</a>
+        </div>
+
+        <div class="right-side">
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Çıkış yap</a>
+            {% else %}
+            <a href="{% url 'login' %}">Giriş yap</a>
+            <a href="{% url 'register' %}">Kayıt ol</a>
+            {% endif %}
+
+
+        </div>
+
+    </nav>
+
+
+    <div class="container">
+
+
+        <div class="up-container">
+
+            <div class="movie-image">
+                <img src="{% static 'images/image-1.jpeg' %}" alt="" class="movie-img">
+                <div>Film Süresi / Konusu</div>
+            </div>
+            <div class="movie-info">
+
+                <div class="title">Avatar</div>
+
+                <div class="movie-info-text">
+                    Açıklama
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="down-container">
+
+            <div class="movie-cast">
+
+                <div class="artist">
+                    name
+                </div>
+
+                <div class="artist">
+                    name
+                </div>
+
+                <div class="artist">
+                    name
+                </div>
+
+                <div class="artist">
+                    name
+                </div>
+
+                <div class="artist">
+                    name
+                </div>
+
+                <div class="artist">
+                    name
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

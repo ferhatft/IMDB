@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="banner">
+    <div class="left-arrow" onclick="plusSlides(-1)">
+        <a class="prev" style="margin-left: 10px;">&#10094;</a>
+    </div>
+    {% for obj in slider_objects  %}
+        <div class="banner-item" id="banner-item-{{forloop.counter}}">
+            <div>
+                <img src="{{obj.image.url}}" alt="" class="film-image-for-banner">
+            </div>
+            <div class="film-info-for-banner">
+                <div class="banner-title">{{obj.title}}</div>
+                <div class="banner-info">
+                    
+                    <ul>
+                        <li>{{obj.release_year}}</li>
+                        <li>{{obj.director}}</li>
+                        <li>{{obj.actors}}</li>
+                    </ul>
+                    {{obj.plot}}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="right-arrow" onclick="plusSlides(1)">
+        <a class="next" style="margin-right: 10px; right: 0; margin-left: auto;">&#10095;</a>
+    </div>
+
+</div>
+
+<div class="container">
+    <h1>Önerilenler</h1>
+    <div class="top-movie-container">
+        {% for obj in all_objects  %}
+        <div class="top-movie-images-container">
+            <a href="{{obj.get_absolute_url}}">
+                <img src="{{obj.image.url}}" alt="" class="top-movie-images">
+            </a>
+            
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <h1 class="movie-container-title">Filmler</h1>
+    <div class="movies-container">
+
+        {% for obj in all_movies  %}
+            <div class="top-movie-images-container">
+            <img src="{{obj.image.url}}" alt="" class="top-movie-images">
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <h1 class="series-container-title">Diziler</h1>
+    <div class="seriess-container">
+
+        {% for obj in all_tv_shows  %}
+            <div class="top-movie-images-container">
+            <img src="{{obj.image.url}}" alt="" class="top-movie-images">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock body %}
