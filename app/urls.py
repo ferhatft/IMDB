@@ -13,6 +13,8 @@ urlpatterns = [
     
     path('movies/<slug:slug>/', views.movie_details, name="movie_details"),
     path('tvshows/<slug:slug>/', views.tvshows_details, name='tvshows_details'), 
+    
+    path('search/', views.search, name='search'),
 
 
 ]

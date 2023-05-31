@@ -259,6 +259,16 @@
 
 <body>
     {% include "includes/navbar.html" %}
+
+<!-- search.html -->
+<form method="POST" action="{% url 'search' %}">
+    {% csrf_token %}
+    {{ search_form }}
+    <button type="submit">Search</button>
+</form>
+  
+  
+  
     {% block body %}
 
     {% endblock body %}
